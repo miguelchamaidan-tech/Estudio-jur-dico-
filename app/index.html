@@ -1,1 +1,801 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="CHAM & CON Estudio Jurídico. Asesoría jurídica en Ecuador. Atención profesional y personalizada.">
+<meta name="theme-color" content="#071a33">
+
+<title>CHAM & CON | Estudio Jurídico</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fa;
+    color:#172033;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#071a33;
+    color:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.nav-content{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:#d5b46a;
+}
+
+.menu{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.menu a{
+    color:#fff;
+    font-size:15px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#d5b46a;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:28px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(rgba(7,26,51,.88),rgba(7,26,51,.94)),
+    radial-gradient(circle at top right,#1b4675,#071a33);
+    color:white;
+}
+
+.hero-content{
+    max-width:760px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid #d5b46a;
+    color:#d5b46a;
+    border-radius:30px;
+    margin-bottom:22px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,76px);
+    line-height:1.05;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:#d5b46a;
+}
+
+.hero p{
+    font-size:20px;
+    color:#e5e9ef;
+    max-width:680px;
+    margin-bottom:32px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#d5b46a;
+    color:#071a33;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    background:#e4c987;
+}
+
+.btn-outline{
+    border:1px solid #fff;
+    color:#fff;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:#071a33;
+}
+
+/* SECTIONS */
+
+section{
+    padding:85px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title small{
+    color:#b08d42;
+    text-transform:uppercase;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    color:#071a33;
+    font-size:38px;
+    margin-top:8px;
+}
+
+.section-title p{
+    max-width:650px;
+    margin:12px auto;
+    color:#667085;
+}
+
+/* SERVICES */
+
+.services{
+    background:white;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:14px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 30px rgba(7,26,51,.07);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(7,26,51,.13);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    border-radius:12px;
+    background:#071a33;
+    color:#d5b46a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#071a33;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#667085;
+    font-size:15px;
+}
+
+/* ABOUT */
+
+.about{
+    background:#f5f7fa;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.about h2{
+    font-size:40px;
+    color:#071a33;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#596579;
+    margin-bottom:15px;
+}
+
+.features{
+    margin-top:25px;
+    display:grid;
+    gap:12px;
+}
+
+.feature{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.check{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:#071a33;
+    color:#d5b46a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.about-box{
+    background:#071a33;
+    color:white;
+    padding:45px;
+    border-radius:18px;
+    box-shadow:0 20px 40px rgba(7,26,51,.2);
+}
+
+.about-box h3{
+    color:#d5b46a;
+    font-size:25px;
+    margin-bottom:18px;
+}
+
+.about-box p{
+    color:#dce3ec;
+}
+
+/* CTA */
+
+.cta{
+    background:#071a33;
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#dce3ec;
+    margin-bottom:28px;
+}
+
+/* CONTACT */
+
+.contact{
+    background:white;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.contact-info{
+    background:#f5f7fa;
+    padding:35px;
+    border-radius:15px;
+}
+
+.contact-item{
+    margin-bottom:25px;
+}
+
+.contact-item strong{
+    display:block;
+    color:#071a33;
+    margin-bottom:5px;
+}
+
+.contact-item span{
+    color:#667085;
+}
+
+.contact-form{
+    padding:35px;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+}
+
+.input{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #d7dce3;
+    border-radius:8px;
+    font-family:inherit;
+}
+
+textarea.input{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* FOOTER */
+
+footer{
+    background:#041120;
+    color:#b9c2cf;
+    padding:35px 0;
+    text-align:center;
+}
+
+footer strong{
+    color:white;
+}
+
+.footer-line{
+    margin-top:8px;
+    font-size:13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:29px;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+    z-index:2000;
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.08);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        width:100%;
+        background:#071a33;
+        padding:25px;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero p{
+        font-size:17
+     .hero p{
+    font-size:17px;
+}
+
+section{
+    padding:65px 0;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.about-grid{
+    grid-template-columns:1fr;
+}
+
+.contact-grid{
+    grid-template-columns:1fr;
+}
+
+.section-title h2,
+.about h2,
+.cta h2{
+    font-size:32px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="container nav-content">
+
+<a href="#inicio" class="logo">
+CHAM <span>&</span> CON
+</a>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="menu" id="menu">
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#contacto">Contacto</a>
+</div>
+
+</div>
+</nav>
+
+<section class="hero" id="inicio">
+<div class="container hero-content">
+
+<div class="badge">ESTUDIO JURÍDICO</div>
+
+<h1>
+Defendemos tus derechos.
+<br>
+<span>Protegemos tus intereses.</span>
+</h1>
+
+<p>
+Asesoría jurídica profesional y personalizada para personas,
+empresas e instituciones en Ecuador.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-primary"
+href="https://wa.me/593979603564?text=Hola%20CHAM%20%26%20CON,%20quisiera%20una%20asesor%C3%ADa%20jur%C3%ADdica."
+target="_blank">
+Solicitar asesoría
+</a>
+
+<a class="btn btn-outline" href="#servicios">
+Conocer servicios
+</a>
+
+</div>
+</div>
+</section>
+
+<section class="services" id="servicios">
+
+<div class="container">
+
+<div class="section-title">
+<small>Nuestros servicios</small>
+<h2>Soluciones jurídicas</h2>
+<p>
+Atención jurídica orientada a resolver problemas concretos
+con estrategia, análisis y responsabilidad profesional.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">⚖</div>
+<h3>Derecho Constitucional</h3>
+<p>
+Análisis y asesoría en derechos constitucionales,
+garantías jurisdiccionales y asuntos relacionados
+con la Constitución.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">§</div>
+<h3>Derecho Administrativo</h3>
+<p>
+Asesoría en procedimientos administrativos,
+actos administrativos, contratación pública
+y relaciones con entidades del Estado.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🏛</div>
+<h3>Derecho Municipal</h3>
+<p>
+Asesoría especializada en asuntos relacionados
+con gobiernos autónomos descentralizados,
+predios, comodatos, donaciones y administración pública.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📄</div>
+<h3>Contratos</h3>
+<p>
+Elaboración, revisión y análisis jurídico de
+contratos civiles, comerciales y administrativos.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">👥</div>
+<h3>Asesoría para personas</h3>
+<p>
+Orientación jurídica personalizada para encontrar
+la mejor alternativa frente a una situación legal.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💼</div>
+<h3>Asesoría empresarial</h3>
+<p>
+Prevención de riesgos legales y acompañamiento
+jurídico para emprendimientos y empresas.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="about" id="nosotros">
+
+<div class="container about-grid">
+
+<div>
+
+<small style="color:#b08d42;font-weight:bold;letter-spacing:2px;">
+CHAM & CON
+</small>
+
+<h2>Derecho con estrategia.</h2>
+
+<p>
+Nuestro enfoque combina análisis jurídico, experiencia
+y comprensión de cada caso para ofrecer soluciones
+claras y responsables.
+</p>
+
+<p>
+Creemos que una buena asesoría jurídica no consiste
+solamente en conocer la ley, sino en saber cómo aplicarla
+estratégicamente a cada situación.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<div class="check">✓</div>
+<span>Atención personalizada</span>
+</div>
+
+<div class="feature">
+<div class="check">✓</div>
+<span>Análisis jurídico especializado</span>
+</div>
+
+<div class="feature">
+<div class="check">✓</div>
+<span>Confidencialidad y responsabilidad</span>
+</div>
+
+<div class="feature">
+<div class="check">✓</div>
+<span>Orientación clara para la toma de decisiones</span>
+</div>
+
+</div>
+</div>
+
+<div class="about-box">
+
+<h3>¿Tienes un problema jurídico?</h3>
+
+<p>
+Cuéntanos brevemente tu situación. Analizaremos
+la información y te orientaremos sobre las
+alternativas jurídicas disponibles.
+</p>
+
+<br>
+
+<a class="btn btn-primary"
+href="https://wa.me/593979603564?text=Hola%20CHAM%20%26%20CON,%20necesito%20asesor%C3%ADa%20jur%C3%ADdica."
+target="_blank">
+Hablar por WhatsApp
+</a>
+
+</div>
+
+</div>
+</section>
+
+<section class="cta">
+
+<div class="container">
+
+<h2>¿Necesitas asesoría jurídica?</h2>
+
+<p>Estamos listos para escuchar tu caso.</p>
+
+<a class="btn btn-primary"
+href="https://wa.me/593979603564?text=Hola%20CHAM%20%26%20CON,%20quisiera%20consultar%20sobre%20un%20asunto%20jur%C3%ADdico."
+target="_blank">
+Contactar ahora
+</a>
+
+</div>
+</section>
+
+<section class="contact" id="contacto">
+
+<div class="container">
+
+<div class="section-title">
+<small>Contacto</small>
+<h2>Hablemos de tu caso</h2>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<div class="contact-item">
+<strong>📱 WhatsApp</strong>
+<span>097 960 3564</span>
+</div>
+
+<div class="contact-item">
+<strong>📍 Atención</strong>
+<span>Ecuador</span>
+</div>
+
+<div class="contact-item">
+<strong>⚖️ Especialidad</strong>
+<span>Asesoría jurídica</span>
+</div>
+
+</div>
+
+<div class="contact-form">
+
+<input class="input" id="nombre" placeholder="Tu nombre">
+
+<input class="input" id="asunto" placeholder="¿En qué podemos ayudarte?">
+
+<textarea class="input" id="mensaje"
+placeholder="Cuéntanos brevemente tu situación"></textarea>
+
+<button class="btn btn-primary" onclick="enviarWhatsApp()">
+Enviar consulta
+</button>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<footer>
+
+<div class="container">
+
+<strong>CHAM & CON | Estudio Jurídico</strong>
+
+<div class="footer-line">
+© 2026 CHAM & CON. Todos los derechos reservados.
+</div>
+
+</div>
+
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/593979603564"
+target="_blank">
+☎
+</a>
+
+<script>
+
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+}
+
+function enviarWhatsApp(){
+
+    const nombre = document.getElementById("nombre").value;
+    const asunto = document.getElementById("asunto").value;
+    const mensaje = document.getElementById("mensaje").value;
+
+    const texto =
+    "Hola CHAM & CON.%0A%0A" +
+    "Nombre: " + encodeURIComponent(nombre) +
+    "%0AAsunto: " + encodeURIComponent(asunto) +
+    "%0AConsulta: " + encodeURIComponent(mensaje);
+
+    window.open(
+        "https://wa.me/593979603564?text=" + texto,
+        "_blank"
+    );
+}
+
+</script>
+
+</body>
+</html> 
