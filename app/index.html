@@ -6,18 +6,33 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-      content="CHAM & CON Estudio Jurídico. Asesoría jurídica profesional y personalizada en Ecuador.">
-
 <meta name="theme-color" content="#071a33">
+
+<meta name="description"
+      content="CHAM & CON | Estudio Jurídico. Asesoría jurídica profesional y personalizada en Ecuador.">
 
 <title>CHAM & CON | Estudio Jurídico</title>
 
 <style>
 
-/* =========================
-   CONFIGURACIÓN GENERAL
-========================= */
+/* =========================================================
+   CHAM & CON — ESTUDIO JURÍDICO
+   DISEÑO PRINCIPAL
+   ========================================================= */
+
+:root{
+    --navy:#071a33;
+    --navy2:#0d2949;
+    --gold:#d8b45c;
+    --gold-light:#f0d58a;
+    --white:#ffffff;
+    --cream:#f7f4ec;
+    --dark:#111827;
+    --gray:#64748b;
+    --green:#25D366;
+    --border:rgba(216,180,92,.35);
+    --shadow:0 20px 60px rgba(0,0,0,.18);
+}
 
 *{
     box-sizing:border-box;
@@ -31,9 +46,9 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    color:#17263d;
-    background:#ffffff;
-    line-height:1.6;
+    background:var(--white);
+    color:var(--dark);
+    overflow-x:hidden;
 }
 
 a{
@@ -41,712 +56,742 @@ a{
     color:inherit;
 }
 
-img{
-    max-width:100%;
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
 }
 
-.container{
-    width:min(1180px, 92%);
-    margin:auto;
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-/* =========================
-   COLORES
-========================= */
-
-:root{
-    --azul:#071a33;
-    --azul2:#0d294c;
-    --dorado:#d5b46a;
-    --dorado2:#b89442;
-    --blanco:#ffffff;
-    --gris:#f5f6f8;
-    --texto:#24344d;
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
 }
 
-/* =========================
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(37,211,102,.45);
+    }
+    70%{
+        box-shadow:0 0 0 18px rgba(37,211,102,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-120%);
+    }
+    100%{
+        transform:translateX(120%);
+    }
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================================
    HEADER
-========================= */
+   ========================================================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(7,26,51,.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(216,180,92,.25);
+}
 
 .navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:var(--azul);
-    color:white;
-    box-shadow:0 3px 15px rgba(0,0,0,.20);
-}
+    max-width:1200px;
+    margin:auto;
+    min-height:86px;
+    padding:12px 24px;
 
-.nav-content{
-    min-height:78px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:25px;
 }
-
-/* LOGO */
 
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-    font-size:21px;
-    font-weight:800;
-    letter-spacing:.5px;
 }
 
-.logo-icon{
-    width:48px;
-    height:48px;
-    border:2px solid var(--dorado);
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    color:var(--dorado);
-    font-size:27px;
-}
-
-.logo-icon:before{
-    content:"⚖";
-    transform:translateY(-1px);
-}
-
-.logo-text{
-    line-height:1.05;
-}
-
-.logo-text strong{
+.logo img{
+    width:210px;
+    max-width:65vw;
+    height:auto;
     display:block;
-    font-size:22px;
-}
-
-.logo-text span{
-    color:var(--dorado);
-    font-size:10px;
-    letter-spacing:2px;
-    font-weight:500;
-}
-
-/* MENU */
-
-.menu{
-    display:flex;
-    align-items:center;
-    gap:25px;
-}
-
-.menu a{
-    color:white;
-    font-size:14px;
-    font-weight:600;
-    transition:.25s;
-}
-
-.menu a:hover{
-    color:var(--dorado);
 }
 
 .menu-button{
-    display:none;
-    font-size:30px;
+    width:50px;
+    height:50px;
+    border:1px solid var(--gold);
+    border-radius:10px;
+    background:transparent;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
     cursor:pointer;
 }
 
-/* =========================
+.menu-button span{
+    width:27px;
+    height:2px;
+    background:var(--gold);
+    transition:.3s;
+}
+
+.menu-button.active span:nth-child(1){
+    transform:rotate(45deg) translate(5px,6px);
+}
+
+.menu-button.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-button.active span:nth-child(3){
+    transform:rotate(-45deg) translate(5px,-6px);
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.mobile-menu{
+    position:fixed;
+    top:86px;
+    left:0;
+    width:100%;
+    background:rgba(7,26,51,.98);
+    border-bottom:1px solid var(--gold);
+    transform:translateY(-120%);
+    transition:.4s ease;
+    z-index:999;
+}
+
+.mobile-menu.active{
+    transform:translateY(0);
+}
+
+.mobile-menu a{
+    display:block;
+    padding:18px 28px;
+    color:white;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-weight:bold;
+}
+
+.mobile-menu a:hover{
+    color:var(--gold);
+}
+
+
+/* =========================================================
    HERO
-========================= */
+   ========================================================= */
 
 .hero{
+    min-height:100vh;
+    padding:145px 24px 70px;
+
+    display:flex;
+    align-items:center;
+
     background:
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(216,180,92,.12),
+            transparent 35%
+        ),
         linear-gradient(
             135deg,
-            rgba(7,26,51,.98),
-            rgba(8,36,69,.96)
+            #071a33,
+            #0d2949
         );
+
     color:white;
-    padding:90px 0 95px;
     position:relative;
     overflow:hidden;
 }
 
-.hero:after{
+.hero::before{
     content:"";
     position:absolute;
-    width:450px;
-    height:450px;
-    border:1px solid rgba(213,180,106,.16);
+    width:600px;
+    height:600px;
+    border:1px solid rgba(216,180,92,.18);
     border-radius:50%;
-    right:-180px;
-    top:-180px;
+    right:-250px;
+    top:100px;
 }
 
-.hero-grid{
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
-    align-items:center;
-    gap:60px;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    border:1px solid rgba(216,180,92,.10);
+    border-radius:50%;
+    left:-250px;
+    bottom:-200px;
 }
 
-.badge{
+.hero-content{
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.hero-badge{
     display:inline-block;
-    border:1px solid var(--dorado);
-    color:var(--dorado);
-    border-radius:30px;
-    padding:10px 22px;
-    margin-bottom:30px;
-    font-size:15px;
-    letter-spacing:.5px;
+    padding:12px 22px;
+    border:1px solid var(--gold);
+    border-radius:40px;
+    color:var(--gold-light);
+    letter-spacing:2px;
+    font-weight:bold;
+    margin-bottom:25px;
+    animation:fadeUp .8s ease;
 }
 
 .hero h1{
-    font-size:clamp(42px,6vw,72px);
-    line-height:1.05;
-    margin-bottom:25px;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(44px,8vw,78px);
+    line-height:1.03;
+    max-width:850px;
+    animation:fadeUp 1s ease;
 }
 
 .hero h1 span{
-    color:var(--dorado);
+    color:var(--gold);
 }
 
-.hero p{
-    font-size:20px;
-    color:#e1e7ef;
-    max-width:650px;
-    margin-bottom:35px;
+.hero-text{
+    margin-top:28px;
+    max-width:760px;
+    font-size:clamp(18px,3vw,23px);
+    line-height:1.7;
+    color:#dbe5f0;
+    animation:fadeUp 1.2s ease;
 }
 
-.buttons{
+.hero-buttons{
     display:flex;
-    gap:15px;
     flex-wrap:wrap;
+    gap:15px;
+    margin-top:35px;
+    animation:fadeUp 1.4s ease;
 }
 
 .btn{
+    min-height:58px;
+    padding:16px 28px;
+    border-radius:10px;
+    border:1px solid var(--gold);
+    font-weight:bold;
+    font-size:17px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:16px 27px;
-    border-radius:8px;
-    font-weight:700;
-    transition:.25s;
+    transition:.3s;
     cursor:pointer;
 }
 
-.btn-primary{
-    background:var(--dorado);
+.btn-gold{
+    background:var(--gold);
     color:#071a33;
 }
 
-.btn-primary:hover{
-    background:#e4c47b;
-    transform:translateY(-2px);
-}
-
 .btn-outline{
-    border:1px solid white;
+    background:transparent;
     color:white;
 }
 
-.btn-outline:hover{
-    border-color:var(--dorado);
-    color:var(--dorado);
+.btn:hover{
+    transform:translateY(-3px);
 }
 
-/* TARJETA HERO */
-
-.hero-card{
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(213,180,106,.35);
-    border-radius:16px;
-    padding:35px;
-    backdrop-filter:blur(5px);
+.btn-gold:hover{
+    background:var(--gold-light);
 }
 
-.hero-card h3{
-    color:var(--dorado);
-    margin-bottom:20px;
-    font-size:24px;
-}
 
-.hero-card p{
-    font-size:16px;
-    margin-bottom:22px;
-}
-
-.hero-list{
-    list-style:none;
-}
-
-.hero-list li{
-    margin:13px 0;
-    color:#e9edf4;
-}
-
-.hero-list li:before{
-    content:"✓";
-    color:var(--dorado);
-    font-weight:bold;
-    margin-right:10px;
-}
-
-/* =========================
+/* =========================================================
    SECCIONES
-========================= */
+   ========================================================= */
 
-section{
-    padding:80px 0;
+.section{
+    padding:90px 24px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:55px;
 }
 
-.section-title .small{
-    color:var(--dorado2);
-    text-transform:uppercase;
+.section-title small{
+    color:#a58536;
+    font-weight:bold;
     letter-spacing:3px;
-    font-size:14px;
-    font-weight:700;
+    text-transform:uppercase;
 }
 
 .section-title h2{
-    color:var(--azul);
-    font-size:42px;
-    margin-top:8px;
+    font-family:Georgia,serif;
+    color:var(--navy);
+    font-size:clamp(34px,6vw,52px);
+    margin-top:12px;
 }
 
 .section-title p{
-    max-width:650px;
-    margin:15px auto 0;
-    color:#64748b;
+    max-width:700px;
+    margin:18px auto 0;
+    color:var(--gray);
+    line-height:1.7;
 }
 
-/* =========================
+
+/* =========================================================
    SERVICIOS
-========================= */
+   ========================================================= */
 
 .services{
-    background:#fff;
+    background:var(--cream);
 }
 
-.services-grid{
+.service-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:22px;
 }
 
 .service-card{
-    border:1px solid #e4e8ee;
-    border-radius:12px;
-    padding:30px;
     background:white;
-    transition:.25s;
-    min-height:210px;
+    border-radius:18px;
+    padding:30px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 30px rgba(7,26,51,.06);
+    transition:.35s;
+    cursor:pointer;
 }
 
 .service-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 30px rgba(7,26,51,.10);
-    border-color:var(--dorado);
+    transform:translateY(-8px);
+    border-color:var(--gold);
+    box-shadow:var(--shadow);
 }
 
 .service-icon{
-    width:52px;
-    height:52px;
+    width:58px;
+    height:58px;
+    border-radius:14px;
+    background:var(--navy);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    margin-bottom:22px;
+}
+
+.service-card h3{
+    color:var(--navy);
+    margin-bottom:12px;
+    font-size:21px;
+}
+
+.service-card p{
+    color:var(--gray);
+    line-height:1.65;
+}
+
+
+/* =========================================================
+   CUÉNTANOS TU CASO
+   ========================================================= */
+
+.case-section{
+    background:var(--navy);
+    color:white;
+}
+
+.case-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    color:var(--dark);
+    border-radius:22px;
+    padding:35px;
+    box-shadow:var(--shadow);
+}
+
+.case-box h3{
+    color:var(--navy);
+    font-family:Georgia,serif;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.case-box > p{
+    color:var(--gray);
+    line-height:1.6;
+    margin-bottom:28px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:9px;
+    color:var(--navy);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    padding:15px;
+    font-size:16px;
+    outline:none;
+    font-family:inherit;
+}
+
+.form-group textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+    border-color:var(--gold);
+}
+
+.case-submit{
+    width:100%;
+    border:0;
+    background:var(--gold);
+    color:var(--navy);
+    padding:17px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.case-submit:hover{
+    background:var(--gold-light);
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   PROCESO
+   ========================================================= */
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.process-card{
+    text-align:center;
+    padding:25px;
+}
+
+.process-number{
+    width:58px;
+    height:58px;
+    margin:0 auto 18px;
     border-radius:50%;
-    background:#f8f2e5;
-    color:var(--dorado2);
+    background:var(--navy);
+    color:var(--gold);
+    border:2px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.process-card h3{
+    color:var(--navy);
+    margin-bottom:10px;
+}
+
+.process-card p{
+    color:var(--gray);
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   CONFIANZA
+   ========================================================= */
+
+.trust{
+    background:#f8fafc;
+}
+
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.trust-card{
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    border-top:4px solid var(--gold);
+}
+
+.trust-card h3{
+    color:var(--navy);
+    margin-bottom:12px;
+}
+
+.trust-card p{
+    color:var(--gray);
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+
+.contact-section{
+    background:var(--cream);
+}
+
+.contact-card{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    border-radius:22px;
+    padding:35px;
+    box-shadow:0 15px 50px rgba(0,0,0,.08);
+}
+
+.contact-row{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.contact-row:last-child{
+    border-bottom:0;
+}
+
+.contact-icon{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--gold);
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:25px;
-    margin-bottom:18px;
+    flex-shrink:0;
 }
 
-.service-card h3{
-    color:var(--azul);
-    margin-bottom:10px;
-    font-size:20px;
+.contact-row h3{
+    color:var(--navy);
+    margin-bottom:5px;
 }
 
-.service-card p{
-    color:#64748b;
-    font-size:15px;
+.contact-row p{
+    color:var(--gray);
 }
 
-/* =========================
-   PROCESO
-========================= */
 
-.process{
-    background:var(--azul);
-    color:white;
-}
-
-.process .section-title h2{
-    color:white;
-}
-
-.process .section-title p{
-    color:#ccd5e2;
-}
-
-.process-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:18px;
-}
-
-.process-item{
-    text-align:center;
-    position:relative;
-}
-
-.process-number{
-    width:55px;
-    height:55px;
-    margin:0 auto 18px;
-    border-radius:50%;
-    background:var(--dorado);
-    color:var(--azul);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    font-size:20px;
-}
-
-.process-item h3{
-    font-size:17px;
-    margin-bottom:8px;
-}
-
-.process-item p{
-    color:#cbd5e1;
-    font-size:13px;
-}
-
-/* =========================
-   POR QUÉ CONFIAR
-========================= */
-
-.why{
-    background:#f6f7f9;
-}
-
-.why-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
-}
-
-.check-list{
-    list-style:none;
-}
-
-.check-list li{
-    padding:14px 0;
-    border-bottom:1px solid #ddd;
-    color:#43536b;
-}
-
-.check-list li:before{
-    content:"✓";
-    color:var(--dorado2);
-    font-weight:bold;
-    margin-right:12px;
-}
-
-.why-box{
-    background:var(--azul);
-    color:white;
-    padding:45px;
-    border-radius:14px;
-    text-align:center;
-}
-
-.why-box .big-icon{
-    font-size:55px;
-    color:var(--dorado);
-    margin-bottom:15px;
-}
-
-.why-box h3{
-    font-size:27px;
-    margin-bottom:15px;
-}
-
-.why-box p{
-    color:#dbe3ee;
-}
-
-/* =========================
-   TESTIMONIOS
-========================= */
-
-.testimonials{
-    background:white;
-}
-
-.testimonial-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.testimonial{
-    padding:30px;
-    background:#f8f9fb;
-    border-radius:12px;
-    border-left:4px solid var(--dorado);
-}
-
-.quote{
-    font-size:17px;
-    color:#40516a;
-    margin-bottom:18px;
-    font-style:italic;
-}
-
-.client{
-    font-weight:700;
-    color:var(--azul);
-}
-
-.stars{
-    color:var(--dorado2);
-    margin-top:7px;
-}
-
-/* =========================
-   CONTACTO
-========================= */
-
-.contact{
-    background:var(--azul);
-    color:white;
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.contact h2{
-    font-size:43px;
-    margin-bottom:20px;
-}
-
-.contact h2 span{
-    color:var(--dorado);
-}
-
-.contact p{
-    color:#d4dce7;
-    margin-bottom:28px;
-}
-
-.contact-box{
-    background:white;
-    color:var(--texto);
-    border-radius:14px;
-    padding:30px;
-}
-
-.contact-item{
-    display:flex;
-    gap:15px;
-    align-items:center;
-    padding:15px 0;
-    border-bottom:1px solid #e5e7eb;
-}
-
-.contact-item:last-child{
-    border-bottom:0;
-}
-
-.contact-item-icon{
-    font-size:26px;
-}
-
-.whatsapp{
-    color:#168c45;
-    font-weight:800;
-    font-size:20px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:#041326;
-    color:white;
-    padding:35px 0 25px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:30px;
-    align-items:center;
-}
-
-.footer-logo{
-    font-size:20px;
-    font-weight:800;
-}
-
-.footer-logo span{
-    color:var(--dorado);
-}
-
-.footer-center{
-    text-align:center;
-    color:#aeb9c8;
-    font-size:13px;
-}
-
-.footer-right{
-    text-align:right;
-    color:#aeb9c8;
-    font-size:13px;
-}
-
-.footer-bottom{
-    border-top:1px solid rgba(255,255,255,.1);
-    margin-top:25px;
-    padding-top:20px;
-    text-align:center;
-    color:#8996a8;
-    font-size:12px;
-}
-
-/* =========================
-   WHATSAPP FLOTANTE
-========================= */
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
 
 .whatsapp-float{
     position:fixed;
-    right:22px;
-    bottom:22px;
-    z-index:2000;
-    width:62px;
-    height:62px;
+    right:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
     border-radius:50%;
-    background:#25D366;
+    background:var(--green);
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:31px;
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
-    transition:.25s;
+    z-index:1001;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    animation:pulse 2s infinite;
 }
 
 .whatsapp-float:hover{
     transform:scale(1.08);
 }
 
-/* =========================
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    background:#041225;
+    color:white;
+    text-align:center;
+    padding:60px 24px 30px;
+}
+
+.footer-brand{
+    font-family:Georgia,serif;
+    font-size:34px;
+    color:var(--gold);
+}
+
+.footer-sub{
+    letter-spacing:4px;
+    font-size:12px;
+    margin-top:8px;
+    color:#d7c48b;
+}
+
+.footer-text{
+    color:#aebccd;
+    margin:20px auto 35px;
+    max-width:600px;
+    line-height:1.6;
+}
+
+.footer-copy{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:25px;
+    color:#7f8da0;
+    font-size:14px;
+}
+
+
+/* =========================================================
    RESPONSIVE
-========================= */
+   ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:850px){
 
-    .menu{
-        display:none;
-        position:absolute;
-        left:0;
-        right:0;
-        top:78px;
-        background:var(--azul);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:25px 5%;
-        gap:20px;
-        box-shadow:0 10px 20px rgba(0,0,0,.2);
-    }
-
-    .menu.active{
-        display:flex;
-    }
-
-    .menu-button{
-        display:block;
-    }
-
-    .hero-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding:65px 0;
-    }
-
-    .hero-card{
-        display:none;
-    }
-
-    .services-grid{
+    .service-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
     .process-grid{
         grid-template-columns:repeat(2,1fr);
-        gap:35px;
     }
 
-    .why-grid,
-    .contact-grid{
+    .trust-grid{
         grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .footer-right{
-        text-align:center;
     }
 }
 
+
 @media(max-width:600px){
 
-    section{
-        padding:60px 0;
+    .navbar{
+        min-height:76px;
+        padding:10px 18px;
     }
 
-    .logo-text strong{
-        font-size:18px;
+    .logo img{
+        width:175px;
     }
 
-    .logo-text span{
-        font-size:8px;
+    .menu-button{
+        width:45px;
+        height:45px;
     }
 
-    .logo-icon{
-        width:42px;
-        height:42px;
+    .mobile-menu{
+        top:76px;
+    }
+
+    .hero{
+        padding:125px 20px 60px;
+        min-height:100svh;
     }
 
     .hero h1{
-        font-size:43px;
+        font-size:46px;
     }
 
-    .hero p{
-        font-size:17px;
+    .hero-text{
+        font-size:18px;
     }
 
-    .buttons{
+    .hero-buttons{
         flex-direction:column;
     }
 
@@ -754,12 +799,11 @@ footer{
         width:100%;
     }
 
-    .section-title h2{
-        font-size:34px;
+    .section{
+        padding:70px 18px;
     }
 
-    .services-grid,
-    .testimonial-grid{
+    .service-grid{
         grid-template-columns:1fr;
     }
 
@@ -767,710 +811,926 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .contact h2{
-        font-size:35px;
+    .case-box{
+        padding:24px 18px;
+    }
+
+    .case-box h3{
+        font-size:27px;
+    }
+
+    .contact-card{
+        padding:20px;
+    }
+
+    .contact-row{
+        align-items:flex-start;
     }
 
     .whatsapp-float{
-        width:56px;
-        height:56px;
-        right:17px;
-        bottom:17px;
+        width:60px;
+        height:60px;
+        right:16px;
+        bottom:16px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     NAVEGACIÓN
-========================= -->
 
-<header class="navbar">
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
 
-<div class="container nav-content">
+<header class="header">
 
-<a href="#inicio" class="logo">
+    <nav class="navbar">
 
-    <div class="logo-icon"></div>
+        <a href="#inicio" class="logo">
 
-    <div class="logo-text">
-        <strong>CHAM <span>&amp;</span> CON</strong>
-        <span>ESTUDIO JURÍDICO</span>
-    </div>
+            <!-- LOGO ORIGINAL -->
+            <img src="logo.png"
+                 alt="CHAM & CON Estudio Jurídico">
 
-</a>
+        </a>
 
-<nav class="menu" id="menu">
+        <button class="menu-button"
+                id="menuButton"
+                aria-label="Abrir menú">
 
-<a href="#inicio">Inicio</a>
-<a href="#servicios">Servicios</a>
-<a href="#proceso">Proceso</a>
-<a href="#nosotros">Nosotros</a>
-<a href="#testimonios">Testimonios</a>
-<a href="#contacto">Contacto</a>
+            <span></span>
+            <span></span>
+            <span></span>
 
-</nav>
+        </button>
 
-<div class="menu-button" onclick="toggleMenu()">☰</div>
-
-</div>
+    </nav>
 
 </header>
 
 
-<!-- =========================
+<!-- =======================================================
+     MENÚ MÓVIL
+     ======================================================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#inicio">Inicio</a>
+
+    <a href="#servicios">Servicios</a>
+
+    <a href="#caso">Cuéntanos tu caso</a>
+
+    <a href="#proceso">Cómo trabajamos</a>
+
+    <a href="#contacto">Contacto</a>
+
+    <a href="https://wa.me/593979603564"
+       target="_blank">
+
+        WhatsApp
+    </a>
+
+</div>
+
+
+<!-- =======================================================
      HERO
-========================= -->
+     ======================================================= -->
 
 <section class="hero" id="inicio">
 
-<div class="container hero-grid">
+    <div class="hero-content">
 
-<div>
+        <div class="hero-badge">
+            ESTUDIO JURÍDICO
+        </div>
 
-<div class="badge">
-ESTUDIO JURÍDICO
-</div>
+        <h1>
 
-<h1>
-Defendemos tus derechos.
-<br>
-<span>Protegemos tus intereses.</span>
-</h1>
+            Defendemos tus derechos.
 
-<p>
-Asesoría jurídica profesional y personalizada
-para personas, empresas e instituciones en Ecuador.
-</p>
+            <br>
 
-<div class="buttons">
+            <span>
+                Protegemos tus intereses.
+            </span>
 
-<a
-href="https://wa.me/593991234567"
-target="_blank"
-class="btn btn-primary">
-Solicitar asesoría
-</a>
+        </h1>
 
-<a
-href="#servicios"
-class="btn btn-outline">
-Conocer servicios
-</a>
+        <p class="hero-text">
 
-</div>
+            Asesoría jurídica profesional y personalizada
+            para personas, empresas e instituciones en Ecuador.
 
-</div>
+        </p>
 
+        <div class="hero-buttons">
 
-<div class="hero-card">
+            <a class="btn btn-gold"
+               href="https://wa.me/593979603564?text=Hola%20CHAM%20%26%20CON.%20Quisiera%20realizar%20una%20consulta%20jur%C3%ADdica."
+               target="_blank">
 
-<h3>
-¿Por qué CHAM &amp; CON?
-</h3>
+                💬 Solicitar asesoría
 
-<p>
-Brindamos acompañamiento jurídico claro,
-responsable y personalizado.
-</p>
+            </a>
 
-<ul class="hero-list">
+            <a class="btn btn-outline"
+               href="#servicios">
 
-<li>Atención profesional y confidencial</li>
-<li>Contratos claros y seguros</li>
-<li>Honorarios informados</li>
-<li>Comunicación directa</li>
-<li>Seguimiento de cada caso</li>
+                ⚖️ Conocer servicios
 
-</ul>
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SERVICIOS
-========================= -->
+     ======================================================= -->
 
-<section class="services" id="servicios">
+<section class="section services"
+         id="servicios">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title reveal">
 
-<div class="small">
-Nuestros servicios
-</div>
+            <small>
+                NUESTROS SERVICIOS
+            </small>
 
-<h2>
-Soluciones jurídicas
-</h2>
+            <h2>
+                Soluciones jurídicas
+            </h2>
 
-<p>
-Asesoría legal enfocada en resolver tus necesidades
-de manera profesional, clara y estratégica.
-</p>
+            <p>
+                Analizamos cada situación de manera individual
+                para ofrecer una estrategia jurídica adecuada.
+            </p>
 
-</div>
-
-
-<div class="services-grid">
+        </div>
 
 
-<div class="service-card">
-
-<div class="service-icon">⌂</div>
-
-<h3>
-Bienes Inmuebles
-</h3>
-
-<p>
-Compra, venta, comodatos, usucapión,
-escrituras, propiedades y problemas relacionados
-con terrenos e inmuebles.
-</p>
-
-</div>
+        <div class="service-grid">
 
 
-<div class="service-card">
+            <div class="service-card reveal">
 
-<div class="service-icon">♙</div>
+                <div class="service-icon">
+                    ⚖️
+                </div>
 
-<h3>
-Sucesiones y Herencias
-</h3>
+                <h3>
+                    Derecho Civil
+                </h3>
 
-<p>
-Herencias, particiones, testamentos,
-posesiones efectivas y asesoría para
-familias.
-</p>
+                <p>
+                    Contratos, obligaciones, daños,
+                    incumplimientos y controversias civiles.
+                </p>
 
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">⚖</div>
-
-<h3>
-Derecho de Familia
-</h3>
-
-<p>
-Divorcios, alimentos, tenencia,
-régimen de visitas y demás asuntos
-familiares.
-</p>
-
-</div>
+            </div>
 
 
-<div class="service-card">
+            <div class="service-card reveal">
 
-<div class="service-icon">▤</div>
+                <div class="service-icon">
+                    🏠
+                </div>
 
-<h3>
-Contratos y Cobranzas
-</h3>
+                <h3>
+                    Derecho Inmobiliario
+                </h3>
 
-<p>
-Contratos, incumplimientos, cobro
-de deudas y reclamaciones.
-</p>
+                <p>
+                    Propiedades, posesión, escrituras,
+                    herencias, transferencias y conflictos
+                    relacionados con bienes inmuebles.
+                </p>
 
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">▣</div>
-
-<h3>
-Derecho Laboral
-</h3>
-
-<p>
-Despidos, liquidaciones, derechos
-laborales, indemnizaciones y reclamos.
-</p>
-
-</div>
+            </div>
 
 
-<div class="service-card">
+            <div class="service-card reveal">
 
-<div class="service-icon">🏛</div>
+                <div class="service-icon">
+                    👨‍👩‍👧
+                </div>
 
-<h3>
-Derecho Administrativo
-</h3>
+                <h3>
+                    Derecho de Familia
+                </h3>
 
-<p>
-Trámites, recursos, multas,
-permisos y procedimientos administrativos.
-</p>
+                <p>
+                    Asuntos familiares y patrimoniales
+                    con atención profesional y confidencial.
+                </p>
 
-</div>
+            </div>
 
 
-</div>
+            <div class="service-card reveal">
 
-</div>
+                <div class="service-icon">
+                    🏛️
+                </div>
+
+                <h3>
+                    Derecho Administrativo
+                </h3>
+
+                <p>
+                    Procedimientos administrativos,
+                    actos de autoridad y defensa de derechos
+                    frente a entidades públicas.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    📜
+                </div>
+
+                <h3>
+                    Derecho Constitucional
+                </h3>
+
+                <p>
+                    Protección de derechos constitucionales
+                    y acciones destinadas a su defensa.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Asesoría Empresarial
+                </h3>
+
+                <p>
+                    Asesoría jurídica para empresas,
+                    emprendimientos y actividades comerciales.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
+     CUÉNTANOS TU CASO
+     ======================================================= -->
+
+<section class="section case-section"
+         id="caso">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <small>
+                ATENCIÓN PERSONALIZADA
+            </small>
+
+            <h2 style="color:white;">
+                Cuéntanos tu caso
+            </h2>
+
+            <p style="color:#cbd5e1;">
+
+                Selecciona el área jurídica y explícanos
+                brevemente tu situación.
+
+            </p>
+
+        </div>
+
+
+        <div class="case-box reveal">
+
+            <h3>
+                ¿En qué podemos ayudarte?
+            </h3>
+
+            <p>
+                Completa estos datos y prepararemos
+                un mensaje para enviarlo directamente
+                por WhatsApp.
+            </p>
+
+
+            <div class="form-group">
+
+                <label for="nombre">
+                    Tu nombre
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Escribe tu nombre">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="area">
+                    Área jurídica
+                </label>
+
+                <select id="area">
+
+                    <option value="">
+                        Selecciona una opción
+                    </option>
+
+                    <option>
+                        Derecho Civil
+                    </option>
+
+                    <option>
+                        Derecho Inmobiliario
+                    </option>
+
+                    <option>
+                        Derecho de Familia
+                    </option>
+
+                    <option>
+                        Derecho Administrativo
+                    </option>
+
+                    <option>
+                        Derecho Constitucional
+                    </option>
+
+                    <option>
+                        Asesoría Empresarial
+                    </option>
+
+                    <option>
+                        Otro
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="mensaje">
+                    Cuéntanos brevemente tu caso
+                </label>
+
+                <textarea
+                    id="mensaje"
+                    placeholder="Explícanos brevemente qué ocurrió..."></textarea>
+
+            </div>
+
+
+            <button
+                class="case-submit"
+                onclick="enviarCaso()">
+
+                💬 Enviar caso por WhatsApp
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
      PROCESO
-========================= -->
+     ======================================================= -->
 
-<section class="process" id="proceso">
+<section class="section"
+         id="proceso">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title reveal">
 
-<div class="small">
-Nuestro proceso de trabajo
-</div>
+            <small>
+                NUESTRO PROCESO
+            </small>
 
-<h2>
-Te acompañamos en cada etapa
-</h2>
+            <h2>
+                Así trabajamos
+            </h2>
 
-<p>
-Un proceso sencillo, transparente y orientado
-a encontrar una solución para tu caso.
-</p>
+            <p>
+                Un proceso sencillo para comprender tu situación
+                y determinar la mejor estrategia jurídica.
+            </p>
 
-</div>
-
-
-<div class="process-grid">
+        </div>
 
 
-<div class="process-item">
-
-<div class="process-number">1</div>
-
-<h3>Contáctanos</h3>
-
-<p>
-Cuéntanos brevemente tu caso
-sin compromiso.
-</p>
-
-</div>
+        <div class="process-grid">
 
 
-<div class="process-item">
+            <div class="process-card reveal">
 
-<div class="process-number">2</div>
+                <div class="process-number">
+                    1
+                </div>
 
-<h3>Videollamada</h3>
+                <h3>
+                    Cuéntanos
+                </h3>
 
-<p>
-Evaluamos tu situación
-y te orientamos.
-</p>
+                <p>
+                    Explícanos tu situación y los hechos principales.
+                </p>
 
-</div>
-
-
-<div class="process-item">
-
-<div class="process-number">3</div>
-
-<h3>Propuesta</h3>
-
-<p>
-Te enviamos nuestra propuesta
-y el contrato.
-</p>
-
-</div>
+            </div>
 
 
-<div class="process-item">
+            <div class="process-card reveal">
 
-<div class="process-number">4</div>
+                <div class="process-number">
+                    2
+                </div>
 
-<h3>Ejecución</h3>
+                <h3>
+                    Analizamos
+                </h3>
 
-<p>
-Iniciamos el trabajo y
-mantenemos informado.
-</p>
+                <p>
+                    Revisamos la información y el contexto jurídico.
+                </p>
 
-</div>
-
-
-<div class="process-item">
-
-<div class="process-number">5</div>
-
-<h3>Resultados</h3>
-
-<p>
-Buscamos la mejor solución
-para tu caso.
-</p>
-
-</div>
+            </div>
 
 
-</div>
+            <div class="process-card reveal">
 
-</div>
+                <div class="process-number">
+                    3
+                </div>
+
+                <h3>
+                    Te orientamos
+                </h3>
+
+                <p>
+                    Te explicamos las alternativas disponibles.
+                </p>
+
+            </div>
+
+
+            <div class="process-card reveal">
+
+                <div class="process-number">
+                    4
+                </div>
+
+                <h3>
+                    Actuamos
+                </h3>
+
+                <p>
+                    Definimos la estrategia jurídica correspondiente.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     NOSOTROS
-========================= -->
+<!-- =======================================================
+     CONFIANZA
+     ======================================================= -->
 
-<section class="why" id="nosotros">
+<section class="section trust">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <div class="section-title reveal">
 
-<div class="small">
-Nuestra filosofía
-</div>
+            <small>
+                CHAM & CON
+            </small>
 
-<h2>
-¿Por qué confiar en CHAM &amp; CON?
-</h2>
+            <h2>
+                Tu caso merece atención
+            </h2>
 
-</div>
-
-
-<div class="why-grid">
-
-<div>
-
-<ul class="check-list">
-
-<li>
-Somos un estudio jurídico serio y profesional.
-</li>
-
-<li>
-Abogados preparados y comprometidos.
-</li>
-
-<li>
-Contratos claros antes de iniciar cualquier gestión.
-</li>
-
-<li>
-Honorarios informados desde el inicio.
-</li>
-
-<li>
-Pagos seguros y comprobantes.
-</li>
-
-<li>
-Comunicación directa por WhatsApp,
-email y videollamada.
-</li>
-
-<li>
-Tu información y documentos permanecen protegidos.
-</li>
-
-</ul>
-
-</div>
+        </div>
 
 
-<div class="why-box">
+        <div class="trust-grid">
 
-<div class="big-icon">⚖</div>
 
-<h3>
-Ética, responsabilidad y resultados
-</h3>
+            <div class="trust-card reveal">
 
-<p>
-Trabajamos para proteger tus derechos,
-defender tus intereses y brindarte
-una atención jurídica responsable.
-</p>
+                <h3>
+                    🔒 Confidencialidad
+                </h3>
 
-</div>
+                <p>
+                    La información proporcionada será tratada
+                    con profesionalismo y confidencialidad.
+                </p>
 
-</div>
+            </div>
 
-</div>
+
+            <div class="trust-card reveal">
+
+                <h3>
+                    ⚖️ Estrategia jurídica
+                </h3>
+
+                <p>
+                    Cada situación requiere un análisis particular.
+                    No todos los casos tienen la misma solución.
+                </p>
+
+            </div>
+
+
+            <div class="trust-card reveal">
+
+                <h3>
+                    🤝 Atención personalizada
+                </h3>
+
+                <p>
+                    Nuestro objetivo es que comprendas tu situación
+                    jurídica y las alternativas disponibles.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     TESTIMONIOS
-========================= -->
-
-<section class="testimonials" id="testimonios">
-
-<div class="container">
-
-<div class="section-title">
-
-<div class="small">
-Lo que dicen nuestros clientes
-</div>
-
-<h2>
-Experiencias de nuestros clientes
-</h2>
-
-</div>
-
-
-<div class="testimonial-grid">
-
-
-<div class="testimonial">
-
-<div class="quote">
-“Vivo en Nueva Jersey y necesitaba resolver
-un problema de herencia en Guayaquil.
-CHAM &amp; CON me ayudó de principio a fin.
-Siempre me mantuvieron informado.”
-</div>
-
-<div class="client">
-— Carlos M., EE. UU.
-</div>
-
-<div class="stars">
-★★★★★
-</div>
-
-</div>
-
-
-<div class="testimonial">
-
-<div class="quote">
-“Excelente atención, claros en los honorarios
-y muy profesionales. 100% recomendados.”
-</div>
-
-<div class="client">
-— María P., EE. UU.
-</div>
-
-<div class="stars">
-★★★★★
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
+<!-- =======================================================
      CONTACTO
-========================= -->
+     ======================================================= -->
 
-<section class="contact" id="contacto">
+<section class="section contact-section"
+         id="contacto">
 
-<div class="container contact-grid">
+    <div class="container">
 
-<div>
+        <div class="section-title reveal">
 
-<div class="badge">
-CONTACTA CON NOSOTROS
-</div>
+            <small>
+                CONTACTO
+            </small>
 
-<h2>
-¡No enfrentes tu problema <span>solo!</span>
-</h2>
+            <h2>
+                Estamos para ayudarte
+            </h2>
 
-<p>
-Estamos en Ecuador para ayudarte,
-estés donde estés.
-Recibe orientación jurídica profesional
-y personalizada.
-</p>
-
-<a
-href="https://wa.me/593979603564"
-target="_blank"
-class="btn btn-primary">
-Escríbenos por WhatsApp
-</a>
-
-</div>
+        </div>
 
 
-<div class="contact-box">
-
-<h3>
-Información de contacto
-</h3>
-
-<div class="contact-item">
-
-<div class="contact-item-icon">📱</div>
-
-<div>
-
-<strong>WhatsApp</strong>
-
-<br>
-
-<a
-class="whatsapp"
-href="https://wa.me/593991234567"
-target="_blank">
-
-+593 99 123 4567
-
-</a>
-
-</div>
-
-</div>
+        <div class="contact-card reveal">
 
 
-<div class="contact-item">
+            <div class="contact-row">
 
-<div class="contact-item-icon">🇪🇨</div>
+                <div class="contact-icon">
+                    💬
+                </div>
 
-<div>
+                <div>
 
-<strong>Atención</strong>
+                    <h3>
+                        WhatsApp
+                    </h3>
 
-<br>
+                    <p>
+                        +593 979 603 564
+                    </p>
 
-Ecuador · Atención online
+                </div>
 
-</div>
-
-</div>
-
-
-<div class="contact-item">
-
-<div class="contact-item-icon">🔒</div>
-
-<div>
-
-<strong>Confidencialidad</strong>
-
-<br>
-
-Tu caso será tratado de manera
-profesional y confidencial.
-
-</div>
-
-</div>
+            </div>
 
 
-</div>
+            <div class="contact-row">
 
-</div>
+                <div class="contact-icon">
+                    🇪🇨
+                </div>
+
+                <div>
+
+                    <h3>
+                        Atención
+                    </h3>
+
+                    <p>
+                        Ecuador · Atención online
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-row">
+
+                <div class="contact-icon">
+                    🔒
+                </div>
+
+                <div>
+
+                    <h3>
+                        Confidencialidad
+                    </h3>
+
+                    <p>
+                        Tu caso será tratado de manera profesional
+                        y confidencial.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
+     WHATSAPP FLOTANTE
+     ======================================================= -->
+
+<a
+    class="whatsapp-float"
+    href="https://wa.me/593979603564?text=Hola%20CHAM%20%26%20CON.%20Quisiera%20realizar%20una%20consulta%20jur%C3%ADdica."
+    target="_blank"
+    aria-label="Contactar por WhatsApp">
+
+    ☎
+
+</a>
+
+
+<!-- =======================================================
      FOOTER
-========================= -->
+     ======================================================= -->
 
 <footer>
 
-<div class="container">
+    <div class="footer-brand">
+        CHAM & CON
+    </div>
 
-<div class="footer-grid">
+    <div class="footer-sub">
+        ESTUDIO JURÍDICO
+    </div>
 
-<div class="footer-logo">
-CHAM <span>&amp;</span> CON
-</div>
+    <p class="footer-text">
 
-<div class="footer-center">
-Estudio Jurídico · Ecuador
-</div>
+        Asesoría jurídica profesional y personalizada
+        para personas, empresas e instituciones.
 
-<div class="footer-right">
-Atención 100% online
-</div>
+    </p>
 
-</div>
+    <a
+        class="btn btn-gold"
+        href="https://wa.me/593979603564"
+        target="_blank">
 
+        💬 Contactar por WhatsApp
 
-<div class="footer-bottom">
+    </a>
 
-© 2026 CHAM &amp; CON | Estudio Jurídico.
-Todos los derechos reservados.
+    <div class="footer-copy">
 
-</div>
+        © 2026 CHAM & CON | Estudio Jurídico · Ecuador
 
-</div>
+    </div>
 
 </footer>
 
 
-<!-- =========================
-     WHATSAPP FLOTANTE
-========================= -->
-
-<a
-href="https://wa.me/593991234567"
-target="_blank"
-class="whatsapp-float"
-aria-label="Contactar por WhatsApp">
-
-☎
-
-</a>
-
+<!-- =======================================================
+     JAVASCRIPT
+     ======================================================= -->
 
 <script>
 
-function toggleMenu(){
+/* =========================================================
+   MENÚ
+   ========================================================= */
 
-    const menu = document.getElementById("menu");
+const menuButton =
+    document.getElementById("menuButton");
 
-    menu.classList.toggle("active");
+const mobileMenu =
+    document.getElementById("mobileMenu");
 
-}
+
+menuButton.addEventListener("click", function(){
+
+    menuButton.classList.toggle("active");
+
+    mobileMenu.classList.toggle("active");
+
+});
 
 
-/* Cerrar menú al seleccionar una opción */
-
-document.querySelectorAll(".menu a").forEach(function(link){
+document.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
 
     link.addEventListener("click", function(){
 
-        document.getElementById("menu").classList.remove("active");
+        menuButton.classList.remove("active");
+
+        mobileMenu.classList.remove("active");
 
     });
 
 });
 
+
+/* =========================================================
+   ANIMACIONES AL DESPLAZAR
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("active");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.12
+        }
+
+    );
+
+
+revealElements.forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   FORMULARIO → WHATSAPP
+   ========================================================= */
+
+function enviarCaso(){
+
+    const nombre =
+        document.getElementById("nombre").value.trim();
+
+    const area =
+        document.getElementById("area").value;
+
+    const mensaje =
+        document.getElementById("mensaje").value.trim();
+
+
+    if(!nombre){
+
+        alert("Por favor, escribe tu nombre.");
+
+        return;
+
+    }
+
+
+    if(!area){
+
+        alert("Selecciona el área jurídica.");
+
+        return;
+
+    }
+
+
+    if(!mensaje){
+
+        alert("Cuéntanos brevemente tu caso.");
+
+        return;
+
+    }
+
+
+    const texto =
+
+        "Hola CHAM & CON.%0A%0A" +
+
+        "Mi nombre es: " +
+        encodeURIComponent(nombre) +
+
+        "%0A%0AÁrea jurídica: " +
+        encodeURIComponent(area) +
+
+        "%0A%0AMi caso:%0A" +
+        encodeURIComponent(mensaje) +
+
+        "%0A%0AQuisiera recibir orientación jurídica.";
+
+
+    const url =
+        "https://wa.me/593979603564?text=" +
+        texto;
+
+
+    window.open(url, "_blank");
+
+}
+
+
+/* =========================================================
+   EFECTO DE SCROLL EN HEADER
+   ========================================================= */
+
+window.addEventListener("scroll", function(){
+
+    const header =
+        document.querySelector(".header");
+
+    if(window.scrollY > 30){
+
+        header.style.boxShadow =
+            "0 8px 30px rgba(0,0,0,.25)";
+
+    }else{
+
+        header.style.boxShadow =
+            "none";
+
+    }
+
+});
+
+
 </script>
+
 
 </body>
 </html>
